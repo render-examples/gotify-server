@@ -1,0 +1,18 @@
+server:
+  port: 8080 # the port for the http server
+  ssl:
+    enabled: false # Render automatically enables SSL for the server
+  responseheaders: # response headers added to every response (default: none)
+    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Methods: "GET,POST"
+  stream:
+    allowedorigins: # allowed origins for websocket connections (same origin is always allowed, default only same origin)
+      - gotify.onrender.com
+database:
+  dialect: postgres # the connection info is set using the GOTIFY_DATABASE_CONNECTION environment variable.
+defaultuser: # on database creation, gotify creates an admin user (these values will only be used for the first start, if you want to edit the user after the first start use the WebUI)
+  name: admin # the username of the default user
+  pass: admin # the password of the default user
+passstrength: 10 # the bcrypt password strength (higher = better but also slower)
+uploadedimagesdir: /tmp/images # the directory for storing uploaded images
+pluginsdir: /tmp/plugins # the directory where plugin resides (leave empty to disable plugins)
